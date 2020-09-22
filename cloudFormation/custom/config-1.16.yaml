@@ -2,7 +2,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: REPLACEME-eks-cluster
+  name: kmurray-sxmdr
   region: us-east-1
   version: "1.16"
   tags: {
@@ -16,7 +16,7 @@ status:
 nodeGroups:
   - name: cloudbees-core-masters
     kubeletExtraConfig:
-      clusterDNS: ["172.20.0.10","169.254.169.253","8.8.8.8","8.8.4.4"]
+      clusterDNS: []
     instanceType: r5.xlarge
     minSize: 1
     maxSize: 3
@@ -34,10 +34,11 @@ nodeGroups:
     iam:
       withAddonPolicies:
         autoScaler: true
-        efs: true
+#        efs: true
+    availabilityZones: ["us-east-1a"]
   - name: cloudbees-core-regular
     kubeletExtraConfig:
-      clusterDNS: ["172.20.0.10","169.254.169.253","8.8.8.8","8.8.4.4"]
+      clusterDNS: []
     instanceType: m5.large
     minSize: 1
     maxSize: 3
@@ -61,8 +62,8 @@ vpc:
   subnets:
     private:
       us-east-1a:
-        id: "REPLACEME-1a"
+ #       id: "us-east-1a"
       us-east-1b:
-        id: "REPLACEME-1b"
+        id: "us-east-1b"
       us-east-1c:
-        id: "REPLACEME-1c"
+        id: "us-east-1c"
