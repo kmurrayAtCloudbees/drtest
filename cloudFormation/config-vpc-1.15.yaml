@@ -1,7 +1,7 @@
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
-  name: kmurray-sxmdr-a
+  name: kmurray-sxmdr-c
   region: us-east-1
   version: "1.15"
 status:
@@ -34,16 +34,3 @@ nodeGroups:
     iam:
       withAddonPolicies:
         autoScaler: true
-vpc:
-  id: "vpc-0f79846be22265221"
-  clusterEndpoints:
-    publicAccess:  true
-    privateAccess: false
-  subnets:
-    public:
-      us-east-1a:
-        id: "subnet-0d49bee0815bd9685"
-      us-east-1b:
-        id: "subnet-08c4af8c2b18aa91d"
-      us-east-1c:
-        id: "subnet-03755bcf02052286c"
